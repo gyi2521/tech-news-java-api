@@ -1,13 +1,17 @@
 package com.tecknews.model;
 
-import javax.persistence.Entity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@JsonIgnoreProperities({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "user")
 
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
